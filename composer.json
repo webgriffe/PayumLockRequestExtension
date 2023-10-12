@@ -1,0 +1,23 @@
+{
+    "name": "webgriffe/payum-lock-request-extension",
+    "description": "A Payum extension providing the ability to lock concurrent requests.",
+    "type": "library",
+    "require": {
+        "payum/core": "^1.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Webgriffe\\PayumLockRequestExtension\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lorenzo Ruozzi",
+            "email": "lruozzi@webgriffe.com"
+        }
+    ]
+}
