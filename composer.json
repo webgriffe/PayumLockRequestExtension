@@ -18,6 +18,11 @@
             "Webgriffe\\PayumLockRequestExtension\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Webgriffe\\PayumLockRequestExtension\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Webgriffe SRL",
