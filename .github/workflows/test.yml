@@ -1,4 +1,4 @@
-name: Tests
+name: 'Tests'
 
 on:
   push:
@@ -9,13 +9,17 @@ on:
 permissions:
   contents: read
 
-env:
-  PHP_VERSION: 8.2
-
 jobs:
   build:
 
     runs-on: ubuntu-latest
+
+    name: "PHP ${{ matrix.php }}"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ["8.0", "8.1", "8.2"]
 
     steps:
     - uses: actions/checkout@v3
@@ -23,7 +27,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: "${{ env.PHP_VERSION }}"
+        php-version: "${{ matrix.php }}"
         tools: composer-require-checker
         coverage: none
 
