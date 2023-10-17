@@ -6,7 +6,8 @@
         "payum/core": "^1.7"
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.4"
+        "phpunit/phpunit": "^10.4",
+        "php-http/discovery": "^1.19"
     },
     "license": "MIT",
     "autoload": {
@@ -19,5 +20,10 @@
             "name": "Webgriffe SRL",
             "email": "support@webgriffe.com"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
 }
