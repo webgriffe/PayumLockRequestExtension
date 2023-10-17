@@ -23,10 +23,10 @@ final class LockRequestExtension implements ExtensionInterface
     private const LOCK_PREFIX = 'webgriffe_payum_lock_request_extension';
 
     public function __construct(
-        private readonly LockFactory $lockFactory,
-        private readonly string $lockPrefix = self::LOCK_PREFIX,
-        private readonly float $lockTTL = self::LOCK_TTL,
-        private readonly bool $lockAutoRelease = true,
+        private LockFactory $lockFactory,
+        private string $lockPrefix = self::LOCK_PREFIX,
+        private float $lockTTL = self::LOCK_TTL,
+        private bool $lockAutoRelease = true,
     ) {
     }
 
