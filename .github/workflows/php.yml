@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Tests
 
 on:
   push:
@@ -9,6 +9,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PHP_VERSION: 8.2
+
 jobs:
   build:
 
@@ -16,6 +19,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: "${{ env.PHP_VERSION }}"
+        tools: composer-require-checker
+        coverage: none
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -32,8 +42,11 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
+    - name: Validate Filesystem skeleton
+      run: vendor/bin/pds-skeleton validate
 
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: Check dependencies are properly required
+      run: composer-require-checker check --config-file=composer-require-checker.json --ignore-parse-errors
+
+    - name: Run test suite
+      run: composer run-script test
