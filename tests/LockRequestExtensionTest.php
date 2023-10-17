@@ -9,10 +9,10 @@ use Payum\Core\Gateway;
 use Payum\Core\Model\Identity;
 use Payum\Core\Model\Token;
 use Payum\Core\Request\Capture;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Lock\Key;
 use Symfony\Component\Lock\LockFactory;
 use Webgriffe\PayumLockRequestExtension\LockRequestExtension;
-use PHPUnit\Framework\TestCase;
 
 class LockRequestExtensionTest extends TestCase
 {

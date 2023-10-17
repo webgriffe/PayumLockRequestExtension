@@ -52,5 +52,8 @@ jobs:
     - name: Check dependencies are properly required
       run: composer-require-checker check --config-file=composer-require-checker.json --ignore-parse-errors
 
+    - name: Check coding standards
+      run: composer run-script cs
+
     - name: Run test suite
       run: composer run-script test

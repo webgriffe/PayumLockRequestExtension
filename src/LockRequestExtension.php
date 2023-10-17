@@ -35,7 +35,7 @@ final class LockRequestExtension implements ExtensionInterface
     public function onPreExecute(Context $context): void
     {
         $request = $context->getRequest();
-        if (!$request instanceof Generic) {
+        if (! $request instanceof Generic) {
             // TODO log here
             return;
         }
@@ -59,7 +59,7 @@ final class LockRequestExtension implements ExtensionInterface
         );
 
         // Try to acquire the lock
-        if (!$this->lock->acquire(true)) {
+        if (! $this->lock->acquire(true)) {
             // Lock acquisition failed, so we throw an exception. Should this be handled better by displaying a message?
             $this->lock = null;
 
@@ -113,7 +113,7 @@ final class LockRequestExtension implements ExtensionInterface
 
     private function getPaymentKeyFromClassAndId(string $class, mixed $id): string
     {
-        if (!is_scalar($id)) {
+        if (! is_scalar($id)) {
             throw new InvalidArgumentException(sprintf(
                 'Cannot extract payment key from class "%s" and id "%s".',
                 $class,
